@@ -42,13 +42,42 @@ public class ExcelBeanData {
 	public void setExcelTitle(String excelTitle) {
 		this.excelTitle = excelTitle ;
 	}
-	
-	public static void main(String[] args) {
-		String excelTitle = "张三" ;
-		List<String> vOs = new ArrayList<>() ;
-		ExcelBeanData excelBeanData = new ExcelBeanData() ;
-		excelBeanData.setExcelTitle(excelTitle);
-		
+
+	@Override
+	public String toString() {
+		return "ExcelBeanData [excelTitle=" + excelTitle + ", excelHeaders=" + excelHeaders + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((excelHeaders == null) ? 0 : excelHeaders.hashCode());
+		result = prime * result + ((excelTitle == null) ? 0 : excelTitle.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ExcelBeanData other = (ExcelBeanData) obj;
+		if (excelHeaders == null) {
+			if (other.excelHeaders != null)
+				return false;
+		} else if (!excelHeaders.equals(other.excelHeaders))
+			return false;
+		if (excelTitle == null) {
+			if (other.excelTitle != null)
+				return false;
+		} else if (!excelTitle.equals(other.excelTitle))
+			return false;
+		return true;
+	}
+
 }
 
